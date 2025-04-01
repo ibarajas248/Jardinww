@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycler de Imágenes</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px; /* Ajusta el ancho máximo de la columna */
+        }
+
+        .image-item {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block; /* Elimina cualquier espacio adicional debajo de la imagen */
+        }
+        
+        
+
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+
+    <div id="image-container" class="image-container"></div>
+
+    <script>
+        // Lógica JavaScript
+        const imageContainer = document.getElementById('image-container');
+
+        // Lista de imágenes (se pueden reemplazar con rutas locales)
+        
+        const images = [];
+        const totalImages = 100;
+        for (let i = 2; i <= totalImages; i++) {
+            images.push(`imagen/imagen_${i}.jpg`);
+        }
+        
+        
+
+        // Función para cargar las imágenes
+        function loadImages() {
+            images.forEach(imageSrc => {
+                const imageItem = document.createElement('div');
+                imageItem.classList.add('image-item');
+
+                const imageElement = document.createElement('img');
+                imageElement.src = imageSrc;
+                imageElement.alt = "Imagen";
+
+                imageItem.appendChild(imageElement);
+                imageContainer.appendChild(imageItem);
+            });
+        }
+
+        // Cargar las imágenes al iniciar
+        loadImages();
+    </script>
+
+</body>
+</html>
